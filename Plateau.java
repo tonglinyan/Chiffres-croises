@@ -76,7 +76,10 @@ public class Plateau{
 	}
 
 	public boolean termine(){
-
+		
 	}
-
+	
+	public void affichage(){
+		
+	} 
 }

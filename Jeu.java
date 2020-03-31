@@ -39,7 +39,7 @@ public class Jeu{
 // Plan du jeu
 	tmp = 0;
 	joueur = joueurs.get(tmp);
-	while (non termine) {
+	while (! plateau.termine()) {
 		while (joueur.changerJetons()) {
 			System.out.println("Combien de jetons vous voulez changer?");
 			lire(nbJetonsChange);
@@ -68,17 +68,17 @@ public class Jeu{
 			lire(x,y);
 			System.out.println("en haut(h), en bas(b), à gauche(g), à droite(d)");
 			lire(direc);
+			joueur.poserJetons(nbJetons, x, y, direc, plateau);
 		}
-		while (!(plateau.positionValide(x, y, direc, nbJetons)));
-		
-		joueur.poserJetons(nbJetons, x, y, direc, plateau);
-
-		joueur.CoupValide(nbJetons, x, y, direc, plateau); 
+		while (!(plateau.positionValide(x, y, direc, nbJetons)||joueur.CoupValide(nbJetons, x, y, direc, plateau))); 
 		joueur.calculScore();
 
 //on pose les jetons sur le plateau
 		for (int i = 0; i < nbJetons; i++)
 			plateau.setCase(joueur.getCoup(i,1), joueur.getCoup(i,2), joueur.getCoup(i,0));
+
+//on affiche le plateau sur l'écran
+		plateau.afficher();
 
 //on passe au joueur suivant
 		joueurs.set(1,joueur);
@@ -86,7 +86,6 @@ public class Jeu{
 			tmp ++;
 		else tmp = 0;
 		joueur = joueurs.get(tmp);
-	}
 	}
 }
 

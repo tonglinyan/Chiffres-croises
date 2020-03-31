@@ -6,6 +6,7 @@ public class Joueur extends Jetons{
 	private int dimCoup;
 	private int score;
 	private int[][] coup;
+	private int nbCible;
 
 //LES CONSTRUCTEURS
 
@@ -19,6 +20,7 @@ public class Joueur extends Jetons{
 			for (int j = 0; j < this.dimCoup; j++)
 				this.coup[i][j] = 0;
 		this.score = 0;
+		this.nbCible = 0;
 
 	}
 
@@ -71,27 +73,26 @@ public class Joueur extends Jetons{
 		}
 	}
 
-	/*public boolean changerJetons(){
+	public boolean changerJetons(){
 		
-	}*/
+	}
 
 
 	public boolean coupValide(int nbJetons, int x, int y, char direc, Plateau plateau){
-		int somme = 0;
 		for (int i = 0; i < nbJetons; i++)
-			somme += this.coup[i][0];
+			this.nbCible += this.coup[i][0];
 		switch (direc){
 			case 'h': 
-				somme += plateau.getCase(x, y+1);
+				this.nbCible += plateau.getCase(x, y+1);
 			break; 
 			case 'b':
-				somme += plateau.getCase(x, y-1);
+				this.nbCible += plateau.getCase(x, y-1);
 			break;
 			case 'g': 
-				somme += plateau.getCase(x+1, y);
+				this.nbCible += plateau.getCase(x+1, y);
 			break;
 			case 'd':
-				somme += plateau.getCase(x-1, y);
+				this.nbCible += plateau.getCase(x-1, y);
 			break; 
 		}
 		return (somme == plateau.getCibles(1)) || (somme == plateau.getCibles(1)) || (somme == plateau.getCibles(2));
@@ -99,7 +100,8 @@ public class Joueur extends Jetons{
 
 
 	public void calculScore(){
-	
+		this.score += this.nbCibles + nbJetons;
+		this.nbCibles = 0;
 	}
 
 }
