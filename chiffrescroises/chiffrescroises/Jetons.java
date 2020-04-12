@@ -1,4 +1,3 @@
-
 public class Jetons{
 //LES ATTRIBUTS
     public int[] jeton;

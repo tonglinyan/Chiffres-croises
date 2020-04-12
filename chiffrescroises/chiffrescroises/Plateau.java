@@ -1,4 +1,3 @@
-
 public class Plateau {
 	//LES ATTRIBUTS
     private int[][] tab;
@@ -87,16 +86,9 @@ public class Plateau {
 				}
 			break;	
 		}
-		boolean valide = (fin>=0 && fin<17);
-		switch(direc) {
-			case 'h' : valide = (valide && getCase(x, y+1) > 0);
-			case 'b' : valide = (valide && getCase(x, y-1) > 0);
-			case 'g' : valide = (valide && getCase(x+1, y) > 0);
-			case 'd' : valide = (valide && getCase(x-1, y) > 0);
-		}	
-		return valide;
+		return (fin>=0 && fin<17);
 	}		
-
+	
 	public void affichage(){
 		int c;
 		for(int i = 0;i<this.hauteur;i++) {

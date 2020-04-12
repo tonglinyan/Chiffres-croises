@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Joueur extends Jetons{
@@ -86,7 +85,6 @@ public class Joueur extends Jetons{
 		public void mainApresPose(int nbJetons) {
 			for(int i = 0;i<nbJetons;i++) {
 				this.enleverJetons(this.coup[i]-1);
-				this.coup[i] = 0;
 				this.nb_jetons--;
 			}
 		}
