@@ -1,6 +1,0 @@
-CLASSEMENT
-Liyu	ZHANG	2
-DianDian	LIU	2
-Huaijin	WANG	2
-Tonglin	YAN	0
-.
